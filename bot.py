@@ -1,16 +1,18 @@
+import telebot
+import os
 
-**Language:** Python
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
----
+bot = telebot.TeleBot(BOT_TOKEN)
 
-This is a comprehensive Python script for a Telegram bot designed to manage a "stress testing" service (often used for DDoS, though described here as an "Attack" bot) and a "Packet Sniffer" tool for the game BGMI. It uses the `python-telegram-bot` library for the interface and `pymongo` for data persistence.
+@bot.message_handler(commands=['start'])
+def start(message):
+    bot.reply_to(message, "Bot Active Hai ✅")
 
-### High-Level Overview
-The bot provides a tiered access system where users must join a channel and redeem keys (purchased or given by admins) to use the "Attack" and "Live Sniff" features. It manages a database of users, keys, and attack logs, providing real-time feedback during operations using asynchronous tasks.
+print("Bot Running...")
+bot.infinity_polling()
 
----
 
-### 1. Key Components and Core Concepts
 
 #### Database Management (`class DB`)
 The bot uses **MongoDB** to store persistent data.
