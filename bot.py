@@ -14,7 +14,6 @@ bot.infinity_polling()
 
 
 
-#### Database Management (`class DB`)
 The bot uses **MongoDB** to store persistent data.
 *   **Users Collection:** Stores user IDs, approval status, expiration dates, and attack history.
 *   **Keys Collection:** Manages "Redeem Keys" which grant access for a specific duration and number of uses.
